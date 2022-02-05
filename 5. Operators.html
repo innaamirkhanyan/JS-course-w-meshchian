@@ -1,0 +1,45 @@
+<script>
+// Here are represented operators which return a boolean ( true or false)
+
+
+// and operator
+let userResponse = +prompt("How old are you?");
+if(userResponse > 18 && userResponse < 60){
+alert("yay?");
+}
+
+// or operator
+let userResponse = +prompt("How old are you?");
+if(userResponse > 18 || userResponse < 10){
+alert("yay?");
+}
+
+//not operator
+let userResponse = +prompt("How old are you?");
+if(userResponse !== 18 || userResponse < 10){
+alert("yay?");
+}
+
+// returns false (true && (false || false))
+let x = 20;
+let y = (x >=20 && (x + 11 === 30 || !!!(x - 3 > 10)));
+alert (y);
+
+// returns true (true || true)
+let x = 20;
+let y = ((!!!(x < 5 && x > 100)) || (x + 20 > 20 || !(x !== 3)));
+
+alert (y);
+
+// returns false (false || false)
+let x = 20;
+let y = !!!!!true;
+let z = x > 4;
+let b = x <= 21;
+let a = x > 300;
+
+let r = y || (z && !(a || b));
+alert(r);
+
+
+</script>
