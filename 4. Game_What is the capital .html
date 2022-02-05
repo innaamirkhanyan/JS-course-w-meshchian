@@ -1,0 +1,30 @@
+<script>
+/*
+
+Create a game which will ask user "What is the capital of..." and after finishing the 
+game user will see how much score he/she recieve for right answers.
+
+*/
+
+let points = 0;
+let resp0 = prompt("What is the capital of Armenia?");
+
+if(resp0 === "Yerevan") { points = points + 1;
+}
+
+let resp1 = prompt("What is the capital of Russia?")
+
+if(resp1 === "Moscow") {
+points = points +1;
+}
+
+let resp2 = prompt ("What is the capital of France?")
+
+if(resp2 === "Paris"){
+points = points +1;
+}
+
+alert("You received "+points+"/3");
+
+
+</script>
