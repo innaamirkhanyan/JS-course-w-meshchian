@@ -1,0 +1,55 @@
+<script>
+
+ // create an array with elements and print  array elements transformed horizontally.
+
+let a = ["Hakob", "Poghos", "Petros", "Aramis", "Nika"];
+ alert(a);
+ 
+let i = 0, //first index
+		i2 = a.length -1; //last index
+ 
+while(i < a.length/2) { 
+let d = a[i]; 
+a[i] = a[i2];
+a[i2] = d;
+
+i = i + 1;
+i2 = i2 - 1;
+}
+    
+alert(a);
+
+// Create a variable and put an array with numbers elements as value. Print array values multiplied by 2
+
+let x = [5, 2, 20, 33, 11, 939, 1, 43, 89342, 95, 8718, 8389]
+
+let y = [];
+
+let i = 0;
+while(i < x.length) {
+	y[i] = x[i] * 2;
+i = i + 1;
+}
+
+alert(x);
+alert(y);
+
+// Find even numbers in array and print them
+let x = [5, 8, 19, 340, 24, 58, 818, 82, 11, 33];
+
+let y = []
+
+let i = 0;
+let i2 = 0;
+
+while(i < x.length) {
+	if (x[i] % 2 == 0) {
+  y[i2] = x[i];
+  i2 = i2 + 1;
+  }
+i = i + 1;
+}
+
+alert(y);
+
+</script>
