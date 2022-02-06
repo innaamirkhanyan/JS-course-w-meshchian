@@ -1,0 +1,75 @@
+<script>
+    /*
+Tic Tac Toe Game
+A game that allows two players play Tic Tac Toe
+*/
+
+// board is the array in which we have all the information
+let board = [
+	["_", "_", "_"],
+	["_", "_", "_"],
+	["_", "_", "_"]
+];
+
+
+let player = "x" // current "x" or "o" user
+ 
+// the main loop of the game
+while(true) {
+let boardStr = board[0].join("  ") + 
+			"\n" + 
+      board[1].join("  ") + 
+      "\n" +
+      board[2].join("  "); 
+   
+      
+      
+ //recieve information from user
+let row = +prompt("Dear user, please provide the value for the row \n\n" +boardStr);
+ 
+let column = +prompt("Dear user, please provide the value for the column \n\n" +boardStr);
+
+
+//check the move is legal or not
+if(board[row][column] !== "_") {
+	alert("Not a legal move, you lose!");
+	break;
+}
+
+//place x or o onto the board
+board[row][column] = player;
+
+//switch players 
+if(player === "x") {
+	player = "o";
+} else {
+	player = "x"; 
+	}
+
+// alert winner
+if (board[row].join("") === "xxx") {
+alert("You win, X!");
+break;
+}
+ 	else if (board[row].join("") === "ooo") {
+	alert("You win, o!");
+  break;
+	} 
+  else if ((board[0][0] === "x" && board[1][1] === "x" && board[2][2] === "x") || (board[0][0] === "o" && board[1][1] === "o" && board[2][2] === "o")) {
+	  alert ("Cross win!");
+	  break;
+ 	} 
+ 	else if ((board[0][0] === "x" && board[1][0] === "x" && board[2][0] === "x") || (board[0][0] === "o" && board[1][0] === "o" && board[2][0] === "o")) {
+	alert("You win!");
+  break;
+  } 
+  else if ((board[0][2] === "x" && board[1][1] === "x" && board[2][0] === "x") || (board[0][2] === "o" && board[1][1] === "o" && board[2][0] === "o")) {
+	alert("You win!");
+  break;
+	}
+
+
+
+
+}
+</script>
