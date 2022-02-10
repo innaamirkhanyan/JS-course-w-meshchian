@@ -1,0 +1,23 @@
+<script>
+let a = [3, 7, 2, 4];
+
+let f = function(a) {
+    return a + 2;     
+}; //
+
+let z = 0; // 7 + 11 + 6 + 8 = 32
+a.forEach(function(val) { 
+z = z + f(val) + 2;     
+
+})
+
+let f2 = function(d) {
+    return f(d) + f(d); //68
+}
+let f3 = function(d) {   //141
+    return f2(d) + 1;  
+};
+
+alert(f(f3(f2(z)))); //143
+
+</script>
