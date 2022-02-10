@@ -1,0 +1,29 @@
+<script>
+
+    /*For each function allows to use actions written inside it for multiple elements, which are set in forEach function as parameter in advance*/ 
+
+
+let forEach = function (array, func) {
+    let i = 0;
+while(i < array.length) {
+    func(array[i], i); 
+
+    i = i + 1;
+}
+};
+
+
+// Count factorial for each element shown in array parameter
+
+forEach([5, 3, 0, 10], function(value, i) {
+    let i = 1;
+    let factorial = 1;
+    while (i <= value ) {
+        factorial = factorial * i; 
+        i = i + 1;
+    }
+}
+
+)
+
+</script>
