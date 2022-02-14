@@ -1,0 +1,49 @@
+<script>
+// let a = [7, 99, 22, 34, 22, 93, 101];
+
+// let filter = function(arr, fun) {
+//     let filteredArr = [];
+//     let i = 0;
+// arr.forEach(function(val) {
+//     if (fun(val)) {
+//         filteredArr[i] = val;
+//         i += 1;
+//     }
+// });
+//     return filteredArr;
+// }
+// let a2 = filter (a, function(val){
+//     return val % 2 === 0;
+// })
+
+// let a3 = filter ([5, 8, 888, 754, 14516], function(val){
+//     return val > 10;
+// })
+
+// alert(a3);
+
+let people = [
+
+{name: "Joe",
+age: 25
+
+},
+{name: "Jane",
+age:22
+},
+{ name: "Valod",
+age: 10
+
+}
+]
+let result = people.filter(function(person){
+    return person.age >= 18;
+}).map(function(person) {
+    return person.name
+});
+
+alert(result);
+
+ 
+
+</script>
