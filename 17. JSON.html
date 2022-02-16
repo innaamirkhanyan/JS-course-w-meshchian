@@ -1,0 +1,66 @@
+<script>
+let a = {
+   name: "John",
+   age: 39,
+   phone: "82898547" 
+};
+
+Object.keys(a); // name, age, phone
+
+
+// Funccia vor@ kcac e mi urish objhecti vori anun@ OBJECT e.
+
+//Object.values(a) returns values of all object keys
+//Object.values(a) implementation
+
+Object.keys(a).forEach(function(key) {
+    let value = a[key];
+  
+});
+
+//JSON is a lightweight format for storing and transporting data
+
+
+//JSON.stringify(obj) function converts objects into JSON string
+//JSON.stringify(obj) function implementation 
+
+let stringify = function(obj){
+    let result = "";
+    Object.keys(obj).forEach(function(key){
+        let value = obj[key];
+        result += key + " : " + value + "\n"
+
+    });
+
+    return result; 
+}
+
+alert(JSON.stringify(a)); //{"name":"John","age":39,"phone":"82898547"}
+
+//JSON.parse() built in function for converting JSON strings into JavaScript objects:
+
+
+
+
+
+
+
+/* the localStorage object allows to save key/value pairs in the browser
+The localStorage object stores data with no expiration date.
+
+The data is not deleted when the browser is closed, and are available for future sessions.
+
+*/
+
+
+// let str = JSON.stringify(a);
+
+// localStorage.setItem("test1", str); // Stores data in browser
+
+let data = localStorage.getItem("test1");
+let parseData = JSON.parse(data);
+alert(parseData.name);
+
+
+
+</script>
