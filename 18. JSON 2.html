@@ -1,0 +1,31 @@
+<script>
+
+    
+let a = {
+    name: "Joe",
+    phone: "2034032974",
+    friends: [
+        "Mike", "Nona", "Arsen"
+    ], 
+    sayHi: function() {
+        alert("Hi");
+    }
+};
+
+alert(JSON.stringify(a, undefined, 20));
+
+// NOTE!!! JSON doesn't stringifies functions
+// It is preferable not to save functions iside data objects
+// Create another object with all functions inside
+
+let b = {
+    f: function() {
+
+    },
+    c: function(){
+
+    }
+};
+
+
+</script>
