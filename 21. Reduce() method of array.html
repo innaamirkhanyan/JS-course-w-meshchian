@@ -1,0 +1,72 @@
+<script>
+
+
+// reduce () reduces final result
+// reduce () implementation
+let sum = function(arr){
+let aggr = 0;
+arr.forEach(function(val) {
+    aggr += val;
+});
+    return aggr;
+};
+
+alert(sum([3, 5]))
+
+
+
+// using reduce() with number aggr
+let a = [9, 3, 4, 10].reduce(function(aggr, val){  //aggr stands for result
+    return aggr + val;
+}, 0)
+
+alert(a);
+
+// using reduce() with object aggr
+
+let arr = [
+    {
+        name: "Joe"
+    },
+    {
+        age: 25
+    },
+    {
+        phone: "585822"
+    }
+    
+];
+
+let b = arr.reduce(function(aggr, val){
+if(val.name !== undefined) {
+    aggr.name = val.name;
+}
+if(val.age !== undefined) {
+    aggr.age = val.age
+}
+if(val.phone !== undefined){
+    aggr.phone = val.phone
+}
+
+return aggr;
+}, {});
+
+alert(JSON.stringify(b, undefined, 2));
+
+
+
+// creating map with reduce method
+let map = function(arr, fun){
+    return arr.reduce(function(aggr, val, i){
+        aggr[i] = fun(val);
+        return aggr;
+    }, []);
+};
+
+
+alert(map([3, 8, 1, 0], function(val) {
+    return val * 2;
+}));
+
+
+</script>
