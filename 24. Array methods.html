@@ -1,0 +1,55 @@
+<script>
+
+// unshift() method of arrays adds new first element to array as a first value
+// unshift() implementation
+
+let x = [7, 10, 22];
+
+let unshiftImp = function(arr, val) {
+    let i = arr.length - 1;
+    while(i >= 0) {
+        arr[i + 1] = arr[i];
+        i--;
+    }
+    arr[0] = val;
+};
+
+unshiftImp(x, 99);
+alert(x);
+
+
+
+x.unshift(7);
+alert(x)
+
+// shift() method of array reduces first element of array and returns it
+
+let y = [25, 6, 10]
+y.shift();
+alert(y);
+
+
+//push() method of arrays adds new last element to array as a first value
+//pop() method of array reduces last element of array
+
+let p = [1, 2, 1, 5, 11, 88]
+p.push(4);
+alert(p)
+
+//concat combines 2 arrays to one new array
+
+let u = [10, 20, 30];
+let j = [40, 50, 60];
+
+alert(u.concat(j));
+
+
+// findIndex(function) method shows the index of element which corresponds to function requirements  
+let arr = [8, 9, 74, 85, 63, 555];
+alert(arr.findIndex(function(val) {
+    return val > 70;
+}))
+
+//find(function) method shows the element value which corresponds to function requirements 
+
+</script>
