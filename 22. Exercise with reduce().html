@@ -1,0 +1,18 @@
+<script>
+    function reduce(arr, fun, aggr) {  // aggr naxnakan arjheq
+        arr.forEach(function(val, i) {
+            if(i === 0 && aggr === undefined) {
+                aggr = val;
+            } else {
+            aggr = fun(aggr, val, i);
+            }  // agregator@ petqa veradarcni en function@ vor@ iran veragrum enq 
+        });
+    
+return aggr;
+    }
+
+alert(reduce([5, 9, 10], function(aggr, val) {
+    return Math.max(aggr, val);
+}));
+
+</script>
