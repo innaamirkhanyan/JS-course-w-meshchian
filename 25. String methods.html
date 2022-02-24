@@ -1,0 +1,60 @@
+<script>
+/*
+COMMON string functions
+*/
+//toUppercase()
+//toLowercase()
+//substring()
+
+
+let a = "hello world";
+let b = a.substring(2, 5);
+
+alert(b);
+
+function nameToUpper(name) {
+return name.substring(0, 1).toUpperCase() + name.substring(1, name.length).toLowerCase();
+}
+
+alert(nameToUpper("michaEl"));
+
+//split(" ") spliting text into array
+// join(" ") joining array into string 
+
+let j = "I went to the store";
+let k = j.split(" ");
+
+alert(k);
+
+function foo(name) {
+    let names = name.split(" ");
+    let upperNames = names.map(function(val){
+        return val.substring(0, 1).toUpperCase() + val.substring(1, val.length).toLowerCase();
+    });
+    return upperNames.join(" ")
+}
+
+alert(foo("joe shmoe roubeni"));
+
+//replaceAll("old value", "new value")
+
+let sentence = "Who is the bomb";
+alert(sentence.replaceAll("bomb", "best person ever"));
+
+//search()
+let sentence2 = "This person went to the store and purchased a car"
+let gg = sentence2.search("store")
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
