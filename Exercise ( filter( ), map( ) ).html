@@ -1,0 +1,56 @@
+<script>
+/*
+Գրել ֆունկցիա transform անունով, որը կստանա օբյեկտներից կազմված զանգված հետևյալ տեսքի՝
+
+    [
+       {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
+       {fn: "Mike", ln: "Hovsepyan", ph: "039 323 233", gender: "male" },
+       {fn: "Jane", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
+       {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
+    ]
+
+Ֆունկցիան պետք է զանգվածից ստանա միայն այն արժեքները, որոնց gender-ի արժեքը "female" է, և վերադարձնի այդ օբյեկտներից կազմված զանգված հետևյալ տեսքի՝
+
+    [
+       {firstName: "Jane", lastName: "Karapetyan", phone: "039 323 233", gender: "female" },
+       {firstName: "Jill", lastName: "Isahakyan", phone: "039 323 233", gender: "female" }
+    ]
+
+Օրինակ՝
+
+     transform([
+         {fn: "Kate", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
+         {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
+         {fn: "Mike", ln: "Hovsepyan", ph: "039 323 233", gender: "male" },
+         {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
+     ]);
+
+     // վերադարձնում է՝
+     // [
+     //    {firstName: "Kate", lastName: "Karapetyan", phone: "039 323 233", gender: "female" },
+     //    {firstName: "Jill", lastName: "Isahakyan", phone: "039 323 233", gender: "female" }
+     // ]
+*/
+
+function transform (obj){
+return obj.filter(function(person){
+    return person.gender === "female";
+}).map(function(person){
+    return {
+        firstName: person.fn,
+        lastName: person.ln,
+        phone: person.ph,
+        gender: person.gender
+
+    }
+})
+
+};
+
+alert(JSON.stringify(transform([
+         {fn: "Kate", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
+         {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
+         {fn: "Mike", ln: "Hovsepyan", ph: "039 323 233", gender: "male" },
+         {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
+     ]), undefined, 2));
+</script>
