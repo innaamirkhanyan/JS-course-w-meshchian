@@ -1,0 +1,88 @@
+<script>
+    /*
+    Ստեղծել ֆունկցիա getPersonWithMostFriendsByName անունով , որը որպես արգումենտ ստանում է զանգված, որի ամեն անդամը 
+    օբյեկտ է որտեղ գրված է մարդու մասին ինֆորմացիա (անուն, ընկերների ցուցակ) եվ ստանում է երկրորդ արգումենտ անուն։ 
+    Ֆունկցիան պետք է վերադարձնի այն մարդու անունը ով ունի ամենաշատ քանակությամբ ընկերներ տրված անունով (երկրորդ արգումենտով փոխանցած անունը)։ 
+
+Օրինակ
+    getPersonWithMostFriendsByName([
+     {
+      name: "Joe", 
+      friends: [
+    {name: "Susan", age: 12}, 
+    {name: "Jane", age: 43}, 
+    {name: "Susan", age: 33}
+       ]
+        }, 
+     {
+      name: "Liz", 
+      friends: [
+    {name: "Mila", age: 12}, 
+    {name: "Susan", age: 43}, 
+    {name: "Jane", age: 33}
+       ]
+        },
+    {
+      name: "Mike", 
+      friends: [
+    {name: "Susan", age: 12}, 
+    {name: "Susan", age: 43}, 
+    {name: "Susan", age: 33}
+       ]
+        }
+    ], "Susan"); 
+    // պետք է վերադարձնի “Mike”, քանի որ նա ունի ամենաշատ քանակությամբ ընկերներ Susan անունով։
+    */
+function getPersonWithMostFriendsByName(people, friendName) {
+   let filteredPeople = people.map(function(personObj) {
+        return {
+            name: personObj.name,
+            count: personObj.friends.filter(function(friendObj) {
+                return friendObj.name === friendName;
+            }).length
+        };
+
+    });
+
+    const max = filteredPeople.reduce(function(aggr, obj) {
+       if(aggr === undefined){
+           return obj; 
+       } 
+
+       if(obj.count > aggr.count) {
+           return obj;
+       } return aggr;
+
+    }, undefined);
+
+    return max.name;
+}
+
+alert(getPersonWithMostFriendsByName([
+     {
+      name: "Joe", 
+      friends: [
+    {name: "Susan", age: 12}, 
+    {name: "Jane", age: 43}, 
+    {name: "Susan", age: 33}
+       ]
+        }, 
+     {
+      name: "Liz", 
+      friends: [
+    {name: "Mila", age: 12}, 
+    {name: "Susan", age: 43}, 
+    {name: "Jane", age: 33}
+       ]
+        },
+    {
+      name: "Mike", 
+      friends: [
+    {name: "Susan", age: 12}, 
+    {name: "Susan", age: 43}, 
+    {name: "Susan", age: 33}
+       ]
+        }
+    ], "Susan"))
+
+</script>
