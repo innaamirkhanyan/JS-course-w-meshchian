@@ -1,0 +1,49 @@
+<script>
+/*
+հավելյալ ինֆորմացիա:
+Տրված նախադասության վրա կարող ենք օգտագործել search ֆունկիցան գտնելու համար մեզ հետաքրքրող տեքստի ինդեքսը։ Օրինակ.
+"Hello world".search("world"); // կվերդարձնի 6
+եթե փնտրվող տեքստը առկա չէ նախադասության մեջ կվերդարձնի -1.  Օրինակ:
+"Hello world".search("pizza"); // կվերդարձնի -1
+
+Օգտագործեք search ֆունկցիան ՝ ստեղծելու համար find ֆունկցիա, որը որպես արգումենտ ստանում է զանգված բաղկացած օբյեկտներից, եւ փնտրվող տեքստը որպես երկրորդ արգումենտ։ Ֆունկցիան պետք է վերադարձնի զանգված, որը կպարունակի բոլոր այն օբյեկտները որոնց մեջ առկա է փնտրվող տեքստը որպես արժեք։ Ենթադրեք որ արգումենտում ստացած զանգվածի օբյեկտները չունեն ներկառուցված(nested) օբյեկտներ կամ զանգվածներ։
+
+Հուշում։ Օգտագործեք Object.keys , օբյեկտի բանալիները զանգվածի մեջ ունենալու համար, որոնց վրայով կարող եք ցիկլ պտտվել եւ գտնել համապատասխանողները
+
+Օրինակ: 
+
+    find([
+        { name: "Apple", color: "red" },
+        { name: "Banana", color: "yellow" },
+        { name: "Orange", color: "orange" },
+        { name: "Apple", color: "yellow" }
+    ], "yellow"); 
+    // Պետք է վերադարձնի [{ name: "Banana", color: "yellow" }, { name: "Apple", color: "yellow" }]
+
+    find([
+       { title: "White Fang", author: "Jack London" },
+       { title: "The Adventures of Tom Sawyer", author: "Mark Twain" }
+    ], "Twain"); 
+    // Պետք է վերադարձնի [{ title: "The Adventures of Tom Sawyer”, author: "Mark Twain" }]
+
+
+*/
+
+
+function find(arr, searchText) {
+   return arr.filter(function(obj) {
+        const values = Object.values(obj);
+        for(let i = 0; i < values.length; i++) {
+            if((""+values[i]).search(searchText) !== -1) {
+                return true;
+            }
+        } return false;
+    })
+}
+
+alert(JSON.stringify(find([
+       { title: "White Fang", author: "Jack London" },
+       { title: "The Adventures of Tom Sawyer", author: "Mark Twain" }
+    ], "Twain")));
+
+</script>
