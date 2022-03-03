@@ -7,6 +7,11 @@
      removeAtIndex([5, 10, 15, 20], 2); // վերադարձնում է [5, 10, 20]
 
 
-*/
+*/ function removeAtIndex (arr, index) {
+    return arr.filter(function (val, i){
+       return i !== index;
+    });
+};
 
+alert(removeAtIndex([5, 10, 15, 20], 2));
 </script>
