@@ -1,0 +1,35 @@
+<script>
+    /*Ստեղծել ֆունկցիա magic անունով, որն ընդունում է որպես արգումենտ օբյեկտ, և վերադարձնում նոր օբյեկտ, որտեղ բանալիները(keys) կդառնան արժեքներ(values), իսկ արժեքնեը(values) բանալիներ(keys)։
+
+Օրինակ՝
+
+    magic({
+      firstName: "Michael",
+      lastName: "Jackson"
+    });
+
+   // պիտի վերադարձնի:
+
+    // {
+    //    Michael: "firstName",
+    //    Jackson: "lastName"
+    // }
+
+*/
+
+
+function magic(obj) {
+  return Object.keys(obj).reduce(function(aggr, key) {
+    aggr[obj[key]] = key;
+    return aggr;
+  }, {});
+}
+
+alert(JSON.stringify(magic({
+  firstName: "Michael",
+  lastName: "Jackson"
+}), undefined, 2));
+
+
+
+</script>
