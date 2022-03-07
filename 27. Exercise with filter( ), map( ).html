@@ -1,6 +1,6 @@
 <script>
 /*
-Գրել ֆունկցիա transform անունով, որը կստանա օբյեկտներից կազմված զանգված հետևյալ տեսքի՝
+Create a function called transform which takes an array of objects of this form:
 
     [
        {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
@@ -8,15 +8,15 @@
        {fn: "Jane", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
        {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
     ]
-
-Ֆունկցիան պետք է զանգվածից ստանա միայն այն արժեքները, որոնց gender-ի արժեքը "female" է, և վերադարձնի այդ օբյեկտներից կազմված զանգված հետևյալ տեսքի՝
+ 
+The function should filter the list down to only those whose gender value is “female” and return an array with those objects transformed into the following form:
 
     [
        {firstName: "Jane", lastName: "Karapetyan", phone: "039 323 233", gender: "female" },
        {firstName: "Jill", lastName: "Isahakyan", phone: "039 323 233", gender: "female" }
     ]
 
-Օրինակ՝
+ Example:
 
      transform([
          {fn: "Kate", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
@@ -25,32 +25,40 @@
          {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
      ]);
 
-     // վերադարձնում է՝
+     // should return:
      // [
      //    {firstName: "Kate", lastName: "Karapetyan", phone: "039 323 233", gender: "female" },
      //    {firstName: "Jill", lastName: "Isahakyan", phone: "039 323 233", gender: "female" }
-     // ]
 */
 
-function transform (obj){
-return obj.filter(function(person){
-    return person.gender === "female";
-}).map(function(person){
-    return {
-        firstName: person.fn,
-        lastName: person.ln,
-        phone: person.ph,
-        gender: person.gender
+function transform(arr){
 
-    }
-})
+    return arr.filter(function(obj){                 // filtering only female objects
 
-};
+        return obj.gender === "female";
+
+    }).map(function(obj) {                          // changing names of object keys
+
+            return   { 
+                        
+                        firstName: obj.fn,
+
+                        lastName: obj.ln,
+
+                        phone: obj.ph,
+
+                        gender: obj.gender
+            
+                    }
+    });
+}
+
 
 alert(JSON.stringify(transform([
          {fn: "Kate", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
          {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
          {fn: "Mike", ln: "Hovsepyan", ph: "039 323 233", gender: "male" },
          {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
-     ]), undefined, 2));
+     ]), undefined, 2))
+
 </script>
