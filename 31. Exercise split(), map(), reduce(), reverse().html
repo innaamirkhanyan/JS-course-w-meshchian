@@ -1,29 +1,42 @@
 <script>
 /*
-Գրեք ֆունկցիա toNumber անունով, որն ընդունում է բինար արտահայտությամբ
-string և վերադաձնում տվային արժեք, որն համարժեք է հաշվարկման երկուական 
-համակարգի թվերին։ Կարդացեք բինար տվերն աջից դեպի ձախ։ Բինար թվերի մասին կարող եք կարդալ գուգլից։
 
-Օրինակ՝
+Write a function called toNumber which takes a binary string and returns the numeric value that it represents.  Read binary numbers from right to left.  If you don’t know how binary numbers work, ask google :)
 
-    toNumber("101");   // պետք է վերադարձնի 5
-    toNumber("111");   // պետք է վերադարձնի 7
-    toNumber("1011"); // պետք է վերադարձնի 11
+ Example:
+
+     toNumber(“101”);  // should return 5
+     toNumber(“111”);  // should return 7
+     toNumber("1011") // should return 11
 
 */
 
-function toNumber(binaryStr) {
-    return binaryStr.split("").map(function(numberStr) {
-        return +numberStr;   
-    }).reverse().map(function(val, i){
-        if(val === 1) {
-            return Math.pow(2, i)
-        }
-        return 0;
-    }).reduce(function(aggr, val) {
-        return aggr + val;
-    }, 0);
+function toNumber(binaryStr){
+
+let binaryNum = binaryStr.split("").reverse().map(function(numberStr){  // changing the sting into elements in array and reversing for binariation
+
+    return +numberStr;
+
+}).map(function(val, i){                 // the logic of binariation
+
+    if(val === 1){
+
+       return Math.pow(2, i)
+
+    } return 0;
+
+})
+
+return binaryNum.reduce(function(aggr, num){        // sum of binaryNum array elements
+       return aggr + num; 
+}, 0)
+
 }
-alert(toNumber("101")); // returns 5
+
+alert(toNumber("101"))
+
+
+
+
 
 </script>
