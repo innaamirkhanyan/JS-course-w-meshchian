@@ -1,43 +1,64 @@
 <script>
 /*
-Ստեղծել ֆունցկիա , getAvgAgeByColor անունով,  որը որպես արգումենտ ստանում է զանգված, որի ամեն անդամը 
-օբյեկտ է որտեղ գրված է մարդու մասին ինֆորմացիա (անուն, տարիք, մազերի գույն) եվ ստանում է երկրորդ 
-արգումենտ մազերի գույն։  Ֆունկցիան պետք է վերադարձնի միջին տարիքը այն մարդկանց ում մազերի գույնը 
-համապատասխանում է երկրորդ արգումենտով փոխանցված գույնին։
+Create a function called transform which takes an array of objects of this form:
 
-օրինակ։ 
-  
-    getAvgAgeByColor([
-        {name: "Joe", age: 13, hairColor: "red"}, 
-        {name: "Mike", age: 10, hairColor: "brown"}, 
-        {name: "Jane", age: 4, hairColor: "red"}, 
-        {name: "Susan", age: 30, hairColor: "brown"}
-    ], "brown"); 
-   // պետք է վերադարձնի 20,  միջին տարիքը այն մարդկանց ում մազերի գույնը շագանակագույն է։
+    [
+       {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
+       {fn: "Mike", ln: "Hovsepyan", ph: "039 323 233", gender: "male" },
+       {fn: "Jane", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
+       {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
+    ]
+ 
+The function should filter the list down to only those whose gender value is “female” and return an array with those objects transformed into the following form:
+
+    [
+       {firstName: "Jane", lastName: "Karapetyan", phone: "039 323 233", gender: "female" },
+       {firstName: "Jill", lastName: "Isahakyan", phone: "039 323 233", gender: "female" }
+    ]
+
+ Example:
+
+     transform([
+         {fn: "Kate", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
+         {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
+         {fn: "Mike", ln: "Hovsepyan", ph: "039 323 233", gender: "male" },
+         {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
+     ]);
+
+     // should return:
+     // [
+     //    {firstName: "Kate", lastName: "Karapetyan", phone: "039 323 233", gender: "female" },
+     //    {firstName: "Jill", lastName: "Isahakyan", phone: "039 323 233", gender: "female" }
+     // ]
 */
 
-function getAvgAgeByColor(arr, hairColor) {
 
- let filterArray = arr.filter(function(obj) {
 
-    return obj.hairColor === hairColor;
-});
+function getAvgAgeByColor(arr, color){
 
-let totalAge = filterArray.reduce(function(aggr, obj){
+    let filteredArray = arr.filter(function(obj){   // creates filtered array with objects based on hair color
+
+        return obj.hairColor === color;
+
+    })
     
-    return aggr + obj.age;
+    let ageSum = filteredArray.reduce(function(aggr, obj){   // calculates sum of age in filtered array;
 
-}, 0);
+        return aggr = aggr + obj.age;
 
-    return totalAge/2;
+    }, 0); 
 
-};
+    return ageSum/filteredArray.length; // calculates average age 
+     
+}
 
 
-alert(getAvgAgeByColor([
+
+alert(JSON.stringify(getAvgAgeByColor([
         {name: "Joe", age: 13, hairColor: "red"}, 
         {name: "Mike", age: 10, hairColor: "brown"}, 
         {name: "Jane", age: 4, hairColor: "red"}, 
         {name: "Susan", age: 30, hairColor: "brown"}
-    ], "brown"))
+    ], "brown")));
+
 </script>
