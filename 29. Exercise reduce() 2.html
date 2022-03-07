@@ -1,10 +1,9 @@
 <script>
     /*
-    Ստեղծել ֆունկցիա getPersonWithMostFriendsByName անունով , որը որպես արգումենտ ստանում է զանգված, որի ամեն անդամը 
-    օբյեկտ է որտեղ գրված է մարդու մասին ինֆորմացիա (անուն, ընկերների ցուցակ) եվ ստանում է երկրորդ արգումենտ անուն։ 
-    Ֆունկցիան պետք է վերադարձնի այն մարդու անունը ով ունի ամենաշատ քանակությամբ ընկերներ տրված անունով (երկրորդ արգումենտով փոխանցած անունը)։ 
+  Create a function called getPersonWithMostFriendsByName that returns the name of the person who has the most number of friends with the given name.
 
-Օրինակ
+Example:
+
     getPersonWithMostFriendsByName([
      {
       name: "Joe", 
@@ -30,35 +29,50 @@
     {name: "Susan", age: 33}
        ]
         }
-    ], "Susan"); 
-    // պետք է վերադարձնի “Mike”, քանի որ նա ունի ամենաշատ քանակությամբ ընկերներ Susan անունով։
+    ], "Susan"); // should return “Mike”, since he has most number of friends named Susan
     */
-function getPersonWithMostFriendsByName(people, friendName) {
-   let filteredPeople = people.map(function(personObj) {
-        return {
-            name: personObj.name,
-            count: personObj.friends.filter(function(friendObj) {
-                return friendObj.name === friendName;
-            }).length
-        };
 
-    });
+    // create new array with objects including only name and custom friend name count
 
-    const max = filteredPeople.reduce(function(aggr, obj) {
-       if(aggr === undefined){
-           return obj; 
-       } 
+    function getPersonWithMostFriendsByName (people, friendName) {
 
-       if(obj.count > aggr.count) {
-           return obj;
-       } return aggr;
+        let filteredFriends = people.map(function(person){ 
 
-    }, undefined);
+            return {
 
-    return max.name;
-}
+                name: person.name,
 
-alert(getPersonWithMostFriendsByName([
+                count: person.friends.filter(function(friend){
+
+                    return friend.name === friendName;
+
+                }).length
+            }
+        })
+        
+
+    // calculating which person has most friends with custom friend name
+
+         let max = filteredFriends.reduce(function(aggr, obj){
+
+    if(aggr === undefined){    // this is for selection of first element instead of undefined
+
+        return obj
+    }
+
+    if(obj.count > aggr.count){  
+
+        return obj
+
+    } return aggr
+
+         }, undefined);
+
+         return max.name
+    }
+
+
+alert(JSON.stringify(getPersonWithMostFriendsByName([
      {
       name: "Joe", 
       friends: [
@@ -83,6 +97,6 @@ alert(getPersonWithMostFriendsByName([
     {name: "Susan", age: 33}
        ]
         }
-    ], "Susan"))
+    ], "Susan")))
 
 </script>
