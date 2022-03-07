@@ -1,17 +1,21 @@
 <script>
 /*
-    Գրել ֆունկցիա removeAtIndex անունով, որը կստանա զանգված ու թիվ և կվերադարձնի նոր զանգված: Նոր զանգվածը կպարունակի առաջինի բոլոր արժեքները, բայց տրված թվով ինդեքսի արժեքը հեռացված կլինի:
+Write a function removeAtIndex which takes an array and returns a new array with the value at the given index removed.
 
- Օրինակ՝
- 
-     removeAtIndex([5, 10, 15, 20], 2); // վերադարձնում է [5, 10, 20]
+Example:
 
+    removeAtIndex([5, 10, 15, 20], 2); // should return [5, 10, 20]
 
-*/ function removeAtIndex (arr, index) {
-    return arr.filter(function (val, i){
-       return i !== index;
-    });
-};
+*/ 
+
+function removeAtIndex(arr, index) {
+
+   return arr.filter(function(arr, i){
+       
+        return i !== index;
+    })
+}
+
 
 alert(removeAtIndex([5, 10, 15, 20], 2));
 </script>
