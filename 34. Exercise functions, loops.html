@@ -1,0 +1,72 @@
+<script>
+    /*
+    Create a function, called diamond, that makes a string that looks like a diamond where the height of the diamond is of the given odd number.  The given number is always a positive, whole, odd number.
+
+Hint: remember that "\n" causes a new line in the rendering
+
+Example: 
+
+    function diamond(height) {
+        // ... your logic goes here ...
+    }
+
+    alert(diamond(5)); // should show the following
+
+    //   *
+    //  ***
+    // *****
+    //  ***
+    //   *
+
+    */
+
+// creates spaces strings 
+    function spaces(num) {
+
+        let str = "";
+
+        for(let i = 0; i < num; i++){
+
+            str += " "
+
+        }   return str;
+
+    }
+
+// creates stars string 
+    function stars(num) {
+        let str = "";
+        for(let i = 0; i < num; i++){
+            str += "*"
+
+        }   return str;
+
+    }
+
+// adding spaces from top to middle by reducing one space during each iteration
+// adding stars from top to bottom by adding 2 stars during each iteration
+    function diamond(height){
+        let str = "";
+        let topSpaces = height/2 - 1;
+        for(let i = 1; i <= height; i += 2) {
+            str += spaces(topSpaces) + stars(i) + "\n";
+            topSpaces--;
+        }
+
+// adding spaces from middle to bottom by adding one space during each iteration
+// adding stars from middle to bottom by reducing 2 stars during each iteration
+
+        let bottomSpaces = 1;
+        for(let x = height - 2; x > 0; x -=2) {
+            str += spaces(bottomSpaces) + stars(x) + "\n";
+            bottomSpaces++;
+        }
+
+        return str;
+    }
+    debugger;
+    alert(diamond(11));
+
+
+
+</script>
