@@ -1,0 +1,28 @@
+<script>
+/*
+Create a function called pow which takes two numbers and multiplies the first number by itself the second number of times.  
+Do not use Math.pow, implement it yourself!
+
+Example:
+
+    pow(5, 3);  // should return 125    (5 * 5 * 5)
+    pow(3, 2);  // should return 9        (3 * 3)
+
+*/
+
+function pow (number, multiplicator) {
+
+    let result = 1;
+
+    for (let i = 1; i <= multiplicator; i++) {
+
+        result *= number;
+
+    } 
+
+    return result;
+}
+
+debugger;
+alert(pow(5, 4))
+</script>

@@ -1,0 +1,25 @@
+<script>
+/*
+Create a function called reverse which, given a number, returns the reverse of that number.  
+
+ Example:
+
+     reverse(123); // should return 321
+     reverse(5829); // should return 9285
+
+*/
+function reverse (number) {
+
+    let numtoString = "" + number;
+
+   const reversed = numtoString.split("").reverse().join("");
+
+    return +reversed;
+  
+} 
+debugger;
+
+alert(reverse(123))
+
+
+</script>
