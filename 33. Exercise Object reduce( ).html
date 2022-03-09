@@ -1,15 +1,17 @@
 <script>
-    /*Ստեղծել ֆունկցիա magic անունով, որն ընդունում է որպես արգումենտ օբյեկտ, և վերադարձնում նոր օբյեկտ, որտեղ բանալիները(keys) կդառնան արժեքներ(values), իսկ արժեքնեը(values) բանալիներ(keys)։
+    /*
+    
+    Create a function called magic which accepts an object and returns a new object where the keys have become the values 
+    and the values have become the keys.
 
-Օրինակ՝
+Example:
 
     magic({
       firstName: "Michael",
       lastName: "Jackson"
     });
 
-   // պիտի վերադարձնի:
-
+    // should return:
     // {
     //    Michael: "firstName",
     //    Jackson: "lastName"
@@ -17,19 +19,30 @@
 
 */
 
+function magic (obj) {
 
-function magic(obj) {
-  return Object.keys(obj).reduce(function(aggr, key) {
-    aggr[obj[key]] = key;
-    return aggr;
-  }, {});
+  const keys = Object.keys(obj);
+
+  return keys.reduce(function(aggr, key){
+
+      const value = obj[key];
+
+      aggr[value] = key;
+
+      return aggr;
+
+
+  }, {})
+
 }
 
 alert(JSON.stringify(magic({
-  firstName: "Michael",
-  lastName: "Jackson"
-}), undefined, 2));
 
+      firstName: "Michael",
+
+      lastName: "Jackson"
+      
+    }), undefined, 2))
 
 
 </script>
