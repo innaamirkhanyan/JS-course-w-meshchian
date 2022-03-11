@@ -8,12 +8,54 @@
   max([5, 28, 99, 23, 100, 32]); // վերադարձնում է 100
 */
 
+//version 1 with for loop
 
-
-function max(arr) {
-  return Math.max(...arr);  // Math.max(5, 28, 99, 23, 100, 32);
+function max1(arr) {
+    let maxVal = arr[0];
+    for(let i = 1; i < arr.length; i++){
+        let val = arr[i];
+        if(val > maxVal){
+            maxVal = val;
+        }
+    } return maxVal
 }
 
-alert(max([5, 28, 99, 23, 100, 32]));
+alert(max1([1, 10, 50]))
+
+
+//version 2 with reduce function 
+
+function max2(arr) {
+   return arr.reduce(function (aggr, val){
+        if(val > aggr) {
+            return val;
+        }
+        return aggr;
+
+    });
+   
+}
+
+// debugger;    
+alert(max2([1, 10, 50, 10, 12]));
+
+//version 3 with min max
+
+function max3(arr) {
+   return arr.reduce(function (aggr, val){
+        return Math.max(aggr,val);
+
+    });   
+}
+alert(max3([1, 10, 50, 10, 12]))
+
+//version 4 with  ...spread 
+function max4(arr){
+   return Matt.max(...arr);    
+}
+
+
+
+//
 
 </script>
