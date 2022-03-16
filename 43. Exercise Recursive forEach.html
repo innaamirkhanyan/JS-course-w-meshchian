@@ -1,0 +1,43 @@
+<script>
+/*
+Ստեղծել forEach անունով ֆունկցիա, որը կգործի ճիշտ այնպես, ինչպես Array.forEach. խնդրում ենք օգտագործել ռեկուրսիա!!!
+
+Օրինակ
+
+    forEach([5, 4, 3], function(val, index) {
+        alert(val);
+    });
+
+
+*/
+
+function forEach1(arr, func) {
+    for (let i = 0; i < arr.length; i++) {
+        func(arr[i], i)
+    }
+}
+
+
+function forEach(arr, func){
+
+    function loop(i) {
+
+        if(i >= arr.length) {
+
+            return;
+        }
+
+        func(arr[i], i);
+
+        loop(i + 1);
+    }
+
+    loop(0);
+}
+
+
+forEach([1, 2, 3], function (val, i){
+   alert(val + " at index " + i)
+})
+    
+</script>
