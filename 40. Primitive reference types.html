@@ -1,0 +1,72 @@
+<script>
+/*
+
+PRIMITIVE TYPES
+number
+string
+boolean
+undefined
+null
+NaN
+
+
+REFERENCE TYPES
+function
+array
+object
+
+
+
+
+Variable     Value
+___________________________________
+a           6
+b           5
+c           "joe"
+d           "hi"
+e           <0x01>
+f           <0x01>
+g           <0x02>
+h           <0x02>
+i           <0x03>
+arr         <0x03>
+
+
+
+Address     Value
+___________________________________
+<0x01>      [5, 4, 3]
+<0x02>      {name: "Joe"}
+<0x03>      [5, 4, 34, 99]
+
+
+*/
+
+let a = 5;
+let b = a;
+a = a + 1;
+alert(a);
+alert(b);
+
+let c = "hi";
+let d = a;
+a = "joe";
+
+let e = [5, 4, 3];
+let f = e;
+
+let g = {
+    name: "Joe"
+}
+
+let h = g;
+
+function foo (arr) {
+arr.push(99);
+}
+
+let i = [5, 4, 34];
+foo(i)
+alert(i)
+
+</script>
