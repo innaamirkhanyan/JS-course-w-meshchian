@@ -1,0 +1,81 @@
+<script>
+/*
+
+Ստեղծել «stringifyJSON» անունով ֆունկցիա, որն ընդունում է օբյեկտ, որը կարող է ունենալ կամայական խորությամբ ենթաօբյեկտներ և 
+
+զանգվածներ, և վերադարձնում է JSON տեքստ։ Ձեր ֆունկցիան պետք է վերադարձնի այն, ինչ վերադարձնում է\  JSON.stringify ֆունկցիան, 
+
+բայց բնականաբար JSON.stringify֊ը Ձեր ֆունկցիայի ներսում օգտագործելու իրավունք չունեք :)
+
+
+Հուշում՝ օգտագործել ռեկուրսիա և յուրաքանչյուր արժեքի համար ստուգել դրա տիպը՝ համապատասխան որոշում կայացնելու համար։
+
+*/
+
+function stringifyJSON (input) {
+    // undefined 
+    if(input === undefined) {
+        return input;
+    }
+    // null
+    if(input === null) {
+        return "" + input;
+    }
+
+    // NaN
+    //number
+    if(typeof(input) === "number") {
+        if(isNaN(input)) {
+            return "" + null;
+        }
+
+        return ""+ input;
+    }
+    
+    // boolean
+
+    if(typeof(input) === "boolean"){
+        return ""+ input;
+    }
+    // string
+    
+    if(typeof(input) === "string") {
+        return "\"" + input + "\"";
+    }
+
+    // array
+    if(Array.isArray(input)) {
+        return "[" + input.map(stringifyJSON),join(",") +  "]"
+    }
+    // object
+
+    return "{" + Object.keys(input).map(function(key){
+        return "\"" + key + "\":" + stringifyJSON(value);
+    }) + "}";
+
+
+    
+
+
+
+
+}
+
+alert(JSON.stringify(null) === stringifyJSON(null));
+alert(JSON.stringify(NaN) === stringifyJSON(NaN));
+alert(JSON.stringify(234) === stringifyJSON(234));
+alert(JSON.stringify(true) === stringifyJSON(true));
+alert(JSON.stringify("goijr") === stringifyJSON("goijr"));
+alert(JSON.stringify([1, 2, 3]) === stringifyJSON([1, 2, 3]));
+
+const a = {
+    name: "Joe",
+    age: "12"
+}
+alert(JSON.stringify([1, 2, 3]) === stringifyJSON([1, 2, 3]));
+
+
+
+
+
+</script>
