@@ -7,11 +7,21 @@
 #label{
     color: red;
 }
+
+.div1{
+background-color: red;
+height: 70px;
+width: 70px;
+
+}
 </style>
 </head>
 <body>
 <input id="text" type="text">
 <div id="label">hello world</div>
+<div class="div1">
+
+</div>
 
 <script>
 const label = document.querySelector("#label")
@@ -22,6 +32,14 @@ text.addEventListener("keyup", function(evt) {
     label.innerHTML = evt.target.value;
 });
 
+const box = document.querySelector(".div1");
+box.addEventListener("mouseenter", function() {
+    box.style.backgroundColor = "green"
+})
+
+box.addEventListener("mouseleave", function(){
+    box.style.backgroundColor = "red"
+})
 </script>
 
 </body>
