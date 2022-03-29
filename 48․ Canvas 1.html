@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta title="Canvas1">
+<meta charset="UTF8">
+<style>
+canvas {
+    border: 1px red solid;
+}
+</style>
+
+</head>
+
+<body>
+<canvas width="500" height="300"></canvas>
+
+<script>
+let data = {
+    x: 10,
+    y: 10,
+    width: 50,
+    height: 50,
+    fillStyle: "red"
+}
+
+    const canvas = document.querySelector("canvas");
+    const context = canvas.getContext("2d");
+
+  function draw() {  
+        context.fillStyle = data.fillStyle;
+        context.fillRect(data.x, data.y, data.width, data.height)
+}
+
+draw()
+</script>
+</body>
+</html>

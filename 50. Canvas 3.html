@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta title="Canvas1">
+<meta charset="UTF8">
+<style>
+canvas {
+    border: 1px red solid;
+}
+</style>
+
+</head>
+
+<body>
+<canvas width="500" height="300"></canvas>
+
+<script>
+const canvas = document.querySelector("canvas");
+const context = canvas.getContext("2d");
+
+let data = {
+  xDelta: 0,
+  x: 10,
+  y: 10,
+  width: 50,
+  height: 50
+};
+
+function update() {
+  data.x += data.xDelta;
+}
+
+function draw() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.fillRect(data.x, data.y, data.width, data.height);
+}
+
+function loop() {
+  requestAnimationFrame(loop);
+  
+  update();
+  draw();
+}
+
+loop();
+
+document.addEventListener("keydown", function(evt) {
+  if(evt.code === "ArrowRight") {
+    data.xDelta = 5;
+  } else if(evt.code === "ArrowLeft") {
+    data.xDelta = -5;
+  }
+  
+});
+
+document.addEventListener("keyup", function(evt) {
+  data.xDelta = 0;
+});
+
+</script>
+</body>
+</html>
