@@ -1,0 +1,19 @@
+
+
+header{
+  
+    background-color: $primaryBtn;
+    color: $textColor;
+    height: 100vh;
+    
+    button {
+        background-color: $primaryBtn;
+        &:hover {
+            background-color: antiquewhite;
+        }
+        &::after {
+            content: " Dear";
+        }
+    }
+    
+}

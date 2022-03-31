@@ -1,0 +1,22 @@
+header, .contact {
+  background-color: #9141a1;
+  color: #383838;
+  height: 100vh;
+}
+
+header button, .contact button {
+  background-color: #9141a1;
+}
+
+header button:hover, .contact button:hover {
+  background-color: antiquewhite;
+}
+
+header button::after, .contact button::after {
+  content: " Dear";
+}
+
+.contact {
+  background-color: orange;
+}
+/*# sourceMappingURL=style.css.map */
