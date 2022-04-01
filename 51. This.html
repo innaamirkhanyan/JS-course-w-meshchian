@@ -1,0 +1,27 @@
+<script>
+
+function zoo () {
+    alert(this.name);
+}
+
+let person = {
+    name: "Joe",
+    age: 33,
+    printName: function(){
+        alert(this.name)
+    }
+}
+
+person.printName();
+person.foo = zoo;
+person.foo(); 
+
+let person2 = {
+    name: "Nike",
+    age: 39
+}
+
+person2.foo = zoo;
+person2.foo()
+
+</script>
