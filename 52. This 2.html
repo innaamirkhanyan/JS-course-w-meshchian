@@ -1,0 +1,50 @@
+<script>
+function func(a) {
+    alert(this);
+    alert(a)
+}
+
+const obj = {
+    func: func
+};
+
+// 1.  obj.func(5);  //this = obj
+
+// 2.  func(5); // this = window
+
+// 3.  func.call(obj, 5);  //this = obj
+// func.apply(obj, [5])  // this = obj
+
+// 4. const boundFunc = func.bind(obj);
+//    boundFunc(5)
+
+// 5. new func(5); this = {}
+
+
+
+const a = {
+    name: "Joe",
+    foo: function(f){
+    alert(this.name)
+    }
+};
+
+[1, 2, 3].forEach(a.foo.bind(a))
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -24,4 +24,26 @@ let person2 = {
 person2.foo = zoo;
 person2.foo()
 
+
+function func(a) {
+        alert(this);
+        alert(a);
+    }
+    
+    const obj = {
+      func: func
+    };
+    
+    obj.func(5);  // this = obj
+
+    func(5);  // this = global object (window in the browser) OR undefined in script mode
+
+    func.apply(obj, [5]); // this = obj
+    func.call(obj, 5);      // this = obj
+   
+    const boundFunc = func.bind(obj);
+    boundFunc(5);  // this = obj
+   
+    new func(5);  // this = {}
+
 </script>
