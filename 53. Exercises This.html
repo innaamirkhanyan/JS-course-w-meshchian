@@ -1,0 +1,15 @@
+<script>
+    // Exercise 1
+    // change code in a way to alert 45
+
+    const a = {
+        age: 23,
+        foo: function(arr) {
+            arr.forEach(function(val) {
+                alert(this.age + val);
+            }.bind(this))
+        }
+    }
+
+a.foo([22]);
+</script>
