@@ -13,5 +13,19 @@
 
 a.foo([22]);
 
-// Exercise 2
+// վարժություն 2
+// Ի՞նչը alert կարվի էկրանին և ինչու
+
+function zoo() {
+  alert(this.age);
+}
+const b = {
+  age: 44
+};
+const c = {
+  age: 23,
+  foo: zoo.bind(b)
+};
+a.foo();
+
 </script>
