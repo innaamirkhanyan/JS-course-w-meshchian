@@ -19,13 +19,59 @@ a.foo([22]);
 function zoo() {
   alert(this.age);
 }
-const b = {
+const c = {
   age: 44
 };
-const c = {
+const d = {
   age: 23,
-  foo: zoo.bind(b)
+  foo: zoo.bind(d)
 };
-a.foo();
+c.foo();
+
+// վարժություն 3
+// Փոխեք այս կոդը այնպես, որ այն alert անի "Mike"
+
+const e = {
+  name: "Joe",
+  f: function() {
+    alert(this.name);
+  }
+}
+
+const fa = {
+  name: "Mike"
+};
+
+e.f.call(fa);
+
+
+// վարժություն 4
+// Փոխեք այս կոդը այնպես, որ այն ստեղծի նոր Person օբյեկտ
+
+function Person() {
+  // this = {};
+  this.name = "Mike";
+  this.age = 33;
+  // return this;
+}
+const j = new Person();
+alert(JSON.stringify(j, undefined, 2));
+
+
+/*
+ վարժություն 5
+ Փոխեք կոդը այնպես, որ ֆունկցիայի 
+ գործառույթում this լինի undefined:
+*/
+
+"use strict"
+
+function func() {
+  alert(this);
+}
+
+func();
+
+
 
 </script>
