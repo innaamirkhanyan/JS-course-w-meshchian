@@ -1,0 +1,45 @@
+<script>
+// վարժություն 1
+
+let x = 7;
+
+function a(y) {
+  return x + y;  // 11
+}
+
+function b(z) {
+  let x = 99;
+  return z(4); 
+}
+
+alert(b(a)); // Ի՞նչ կցուցադրի  // 11
+
+
+
+
+// վարժություն 2
+
+function a(x) {
+   return (y) => x + y;
+}
+
+alert(a(2)(4)); // Ի՞նչ կցուցադրի  // 6
+
+
+
+// վարժություն 3
+
+function a(x) {
+   return function(y) {
+      return function(z) {
+        return x + y + z;
+      };
+   };
+}
+
+alert(a);          // Ի՞նչ կցուցադրի
+alert(a(2));       // Ի՞նչ կցուցադրի
+alert(a(2)(4));    // Ի՞նչ կցուցադրի
+alert(a(2)(4)(9)); // Ի՞նչ կցուցադրի
+
+</script>
