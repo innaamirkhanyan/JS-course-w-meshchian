@@ -1,4 +1,75 @@
 <script>
+// վարժություն 1
+//   -Մաքրեք այս կոդը
+//   -Ինչ է արդյունքը?
+
+const a = {
+  age: 22,
+  name: "Joe",
+  getName: function() {
+    return this.name;
+  },
+  getAge: () => {
+    return this.age;
+  }
+};
+
+alert(a.getName()); // "Joe" քանի որ իրա this-ը կետից առաջ եղած օբյեկտն է
+alert(a.getAge()); // undefined
+
+
+// վարժություն 2
+//   -Մաքրեք այս կոդը
+//   -Ինչ է արդյունքը?
+
+window.name = "Khachatur"; // this.name = "Khachatur"
+ 
+const f = () => this.name;
+
+const c = {
+  name: "Mike"
+};
+
+alert(f.call(c)); // "Khachatur" քանի որ իրա this-ը նախապես որոշված է arrow ֆունկցիայով
+
+
+// վարժություն 3
+//   -Մաքրեք այս կոդը
+//   -Ինչ է արդյունքը?
+
+function func() {
+  return () => {
+    return this.age;
+  };
+}
+
+const x = {
+  age: 22
+};
+
+const z = func.call(x);
+alert(z());
+
+
+// վարժություն 4
+//   -Մաքրեք այս կոդը
+
+let arr = [5, 40, 29, 44, 33];
+
+function o() {
+  let newArr = [];
+  arr.map(function(val) {
+   newArr.push(val + 1);
+  });
+
+  let filtering = newArr.filter(function(val) {
+    return val % 2 === 0;
+  });
+  
+  return filtering;
+}
+
+o();
 
     
 </script>

@@ -1,0 +1,35 @@
+<script>
+
+    /*
+     let x = 5;
+
+     if(x === 5) {
+
+         let y = 7;
+         let x = 2; 
+         alert(x + y);
+
+     }
+
+
+let f = function() {
+    let y = 7;
+    alert(y + x);
+}
+
+*/
+let y = 9;
+
+let f = function() {
+    let x = 8;
+    return function(){
+        let z = 2
+    alert(x + y + z);
+    };
+};
+
+let f2 = f()  // function () {let z = 2; alert(x + y + z); }
+
+y = 20 // կկարդա 
+f2()
+</script>

@@ -1,12 +1,45 @@
 <script>
-    let sum = (a, b) => a + b;
 
-/* This arrow function is a shorter form of:
+    // Arrow function implementation
 
-let sum = function(a, b) {
-  return a + b;
-};
+let func = function(x){
+    alert(x)
+}
+
+let funcArr = (y) => {
+    alert(y)
+} 
+
+/*Սովորական ֆունկցիայի և arrow ֆունկցիայի տարբերությունները
+
+1․ Սովորական ֆունկցիա ստեղծելիս, նրա this-ը որոշվում է այն պահին, երբ մենք
+կանչում ենք նրան, իսկ arrow ֆունկցիայի this-ը որոշվում է հենց ստեղծելու պահին
+
+
+2․ new f()-ը որպես օբյեկտ կառուցող կարող ենք օգտակգործել սովորական ֆունկցիաների համար,
+բայց չենք կարող օգտագործելarrow ֆունկցիաների համար
+
+
+3․ Սովորական ֆունկցիան ունի arguments զանգվածային օբյեկտ, ինչը չունի arrow ֆունկցիան
+    սակայն arrow ֆունկցիայի դեպքում կարելի է օգտագործել ․․․spead օպերատոր, որը կփոխարինի arguments-ին
+
+
+4․ const f = () => 5 // կվերադարձնի 5, և կարիք չկա return գրելու
+
+
+5․ function F() {
+    this.name = "Joe";
+    this.sayHi = () => {
+        alert(this.name);
+    }
+}
+
+const a = new F();
+a.sayHi(); //Joe
+
+const b = a.sayHi;
+b() // "Joe"
+
 */
 
-alert( sum(1, 2) ); // 3
 </script>
