@@ -4,12 +4,12 @@
 let x = 7;
 
 function a(y) {
-  return x + y;  // 11
+  return x + y;  // 11 (x + 4) 
 }
 
-function b(z) {
+function b(z) { //b(a)
   let x = 99;
-  return z(4); 
+  return z(4);  //a(4)
 }
 
 alert(b(a)); // Ի՞նչ կցուցադրի  // 11
@@ -40,6 +40,44 @@ function a(x) {
 alert(a);          // Ի՞նչ կցուցադրի
 alert(a(2));       // Ի՞նչ կցուցադրի
 alert(a(2)(4));    // Ի՞նչ կցուցադրի
-alert(a(2)(4)(9)); // Ի՞նչ կցուցադրի
+alert(a(2)(4)(9)); // Ի՞նչ կցուցադրի //15
+
+
+// վարժություն 4
+
+function Cat() {
+    //this = {}
+  let numLives = 7;
+  let name = "Jack";
+  
+  this.age = 5;
+  this.getName = () => {
+    return name;
+  };
+  this.getAge = () => {
+    return this.age;
+  };
+  this.catDies = () => {
+    numLives--;
+  };
+  this.isDead = () => {
+    return numLives <= 0;
+  };
+};
+
+let a = new Cat();
+a.catDies();  //6
+a.catDies();  //5
+a.catDies();  //4
+a.catDies(); //3
+alert(a.isDead());   // Ի՞նչ կցուցադրի // false
+a.catDies(); //2
+a.catDies(); // 1
+a.catDies(); //0
+alert(a.isDead());   // Ի՞նչ կցուցադրի //true
+alert(a.getName());  // Ի՞նչ կցուցադրի // Jack
+a.age = 99;
+alert(a.age);        // Ի՞նչ կցուցադրի //99
+
 
 </script>
