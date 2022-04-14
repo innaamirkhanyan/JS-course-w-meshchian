@@ -1,0 +1,41 @@
+<script>
+
+/* հնարավորություն է տալիս մոտավորապես նույն տեսքը ունեցող օբյեկտների համար անընդհատ չկրկնել նույն գործողությունները
+այլ ունենալ մի հատ օբյեկտ որտեղ կլինեն բոլոր ֆունկցիաները և հետո մնացած օբյեկտները ժառանգեն այդ ֆունկցիաները Object.prototype -ի միջոցով
+Այդպիսի հղում կարելի է ստեղծել function constructor-ի միջոցով, կամ Object.create-ով */
+
+
+const b = {
+        lastName: "Jackson"
+    };
+
+
+    const a = Object.create(b);
+    a.name = "Joe";
+    alert(a.lastName)
+
+
+function A() {
+    //this = {};
+    //this.__proto__ = A.prototype;
+    this.name = "Joe"
+}
+
+
+A.prototype = b
+
+const a = new A();
+
+
+const c = {}
+
+Obeject.prototype.toString = function() {
+    return "yay";
+};
+
+alert(a.__proto__ === Object.prototype);
+
+
+
+
+</script>
