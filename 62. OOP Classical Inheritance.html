@@ -1,0 +1,52 @@
+<script>
+/*
+Classical Inheritance - ի ժամանակ շաբլոններ որոնք նկարագրում են մեր օբյեկտներին, շաբլոնները ժառանգում են իրարից
+և մենք այդ շաբլոններից կարող ենք ստեղծել օբյեկտներ։ Այդ շաբլոնները կոչվում են classes
+// ստորակետ պետք չի
+*/
+
+class Animal {
+    constructor(name) {
+        this._name = name;
+       
+    }
+
+    toString() {
+        return this._name;
+    }
+
+}
+
+
+class Dog extends Animal  {
+    constructor(name, age){
+        super(name);
+        this._age = age;
+    }
+
+    talk(){
+    alert(this._name + " says woof");
+    };
+    toString() {
+        return  "Dog named " + super.toString()
+    }
+};
+
+
+
+class Cat extends Animal  {
+
+talk(){
+alert(this._name + " says meow"); 
+}
+};
+
+
+
+const dog1  = new Dog ("Pickles"); // Dog named Pickles
+
+alert(dog1 instanceof Dog); // true
+alert(dog1 instanceof Animal); // true
+
+
+</script>
