@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    canvas{
+        border: solid 1px red;
+    }
+</style>
+
+</head>
+<body>
+
+<canvas width="500" height="300"></canvas>
+
+    <script>
+        // Encapsulation
+        // Application Programming Interface
+        
+        const canvas = document.querySelector("canvas");
+const context = canvas.getContext("2d");
+
+function Hero(x, y, width, height) {
+
+   const heroImg = document.createElement("img");
+   heroImg.src = "https://1001freedownloads.s3.amazonaws.com/vector/thumb/135655/nicubunu_Game_baddie_Ninja.png";
+
+   let xDelta = 0;
+   let yDelta = 0;
+   
+   
+   this.update = () => {
+     x += xDelta;
+     y += yDelta;
+   };
+   
+   this.render = () => {
+     context.drawImage(heroImg, x, y, width, height);
+   };
+   
+   this.goRight = () => {
+     xDelta = 1;
+   };
+   this.goLeft = () => {
+     xDelta = -1;
+   };
+   this.stop = () => {
+     xDelta = 0;
+   };
+}
+
+let data = {
+  hero: new Hero(20, 20, 40, 40)
+};
+
+function update() {
+  data.hero.update();
+}
+
+function render() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  data.hero.render();
+}
+
+function loop() {
+  requestAnimationFrame(loop);
+  update();
+  render();
+}
+
+loop();
+
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.code === "ArrowRight") {
+    data.hero.goRight();
+  } else if (evt.code === "ArrowLeft") {
+    data.hero.goLeft();
+  }
+});
+
+document.addEventListener("keyup", (evt) => {
+  data.hero.stop();
+});
+
+
+        </script>
+
+</body>
+
+
+</html>
