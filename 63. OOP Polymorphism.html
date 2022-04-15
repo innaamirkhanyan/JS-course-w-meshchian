@@ -1,6 +1,73 @@
 <script>
+    // ՕՐԻՆԱԿ 1
+    // ամեն ֆունկցիա ունի մեկ դեր
 function sayHi () {
     alert("hi");
 }
+
+function sayHiName(name) {
+    alert("Hello" + name);
+}
+
+function sayHiFullName(name, lastName) {
+    alert("Greetings" + name + " " + lastName);
+}
+
+// մեկ ֆունկցիան ունի մի քանի դեր = polymorphism
+function hi(...args){
+    if(args.length === 0) {
+        alert("hi");
+    } else if (args.length === 1) {
+        alert("Hello" + args[0]);
+    } else if(args.length === 2) {
+        alert("Greetings" + args[0] + " " + args[1]);
+    }
+
+}
+
+const data = [
+    {name: "Joe", age: 33},
+    {name: "Mike", age: 22},
+    {name: "Susan", age: 19}
+]
+// 
+function find(...args) {
+    if(typeof(args[0]) === "number") {
+        return data.filter(obj => obj.age === args[0]);
+    } else {
+        return data.filter(obj => obj.name === args[0])
+    }
+}
+
+alert(JSON.stringify(find("Joe")));
+alert(JSON.stringify(find(19)));
+
+
+
+//ՕՐԻՆԱԿ 2 
+// մի ֆունկցիա որը ունի նույն անունը, և կիցած է նմանօրինակ օբյեկտի աշխատում է այլ կերպ,
+
+class Animal {
+    saySomething(){
+        alert("err., I'm an animal");
+    }
+}
+
+class Dog extends Animal {
+    saySomething() {
+        alert("Woof")
+    }
+}
+
+const animal1 = new Animal();
+const animal2 = new Dog()
+
+alert(animal1 instanceof Animal) //true
+alert(animal2 instanceof Dog) //true
+alert(animal2 instanceof Animal) // true
+
+// animal1.saySomething();
+// dog1.saySomething()
+
 
 </script>
