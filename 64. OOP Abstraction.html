@@ -1,0 +1,82 @@
+<script>
+
+    // Abstraction  նշանակում է թաքցնել 
+
+   class Person {
+       constructor(name, lastName, passportId, studentId, salary) {
+           this._name = name;
+           this._lastName = lastName;
+           this._passportId = passportId;
+           this._studentId = studentId;
+           this._salary = salary;
+           this._courses = [];
+       }
+       getName() {
+           return this._name;
+       }
+
+       setName() {
+           this._name = name;
+       }
+
+       getFullName() {
+           return this.name() + " " + this.getSurname();
+       }
+
+       getPassportId() {
+           return this._passportId;
+       }
+
+       getStudentId() {
+           return this._studentId;
+       }
+
+       getSalary() {
+           return this._salary;
+       }
+
+       getCourses() {
+           return this._courses;
+       }
+
+       addCourse(course) {
+           this._courses.push(course);
+       }
+
+       removeCourse(courseId) {
+           this._courses = this._courses.filter(c => c.id !== courseId);
+       }
+
+       clearCourses() {
+           this._courses() = [];
+       }
+
+   }
+   
+   const person1 = new Person ("Mesrop", "Ademyan", "A3838892982", "UNI9382821", 450000);
+   person1.addCourse({
+       name: "Introduction to Computer Science",
+       id: "CS110",
+   });
+   person1.addCourse({
+       name: "Intro to Biology",
+       id: "BIO101"
+   });
+
+   function funcForStudent (student) {
+       const id = student.getStudentId();
+       const courseNames = student.getCourses().map((course) => course.name);
+       alert("Student with the id of " + id + " is studying " + courseNames.join(", ") + " courses")
+
+   }
+
+   funcForStudent({
+       getStudentId() {
+           return person1.getStudentId();
+       }, 
+       getCourses() {
+           return person1.getCourses();
+       }
+   })
+
+</script>
