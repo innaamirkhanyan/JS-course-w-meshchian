@@ -1,0 +1,45 @@
+<script>
+class Person {
+
+    // ստատիկ  ֆունկցիաներ չեն, նկարագրում են օբյեկտը
+    sayHi() {
+        alert("hi")
+    }
+    sayBye () {
+        alert("bye")
+    }
+
+    static zoo() {
+        alert("zoo")
+    }
+}
+
+//ստատիկ ֆունկցիա է, այսինքն կցած է կլասսից
+
+Person.boo = function(){        // սա շաբլոնի մասնիկը չէ
+    alert("boo");
+}
+
+
+const obj = new Person();
+const obj2 = new Person();
+
+Person.boo()            // առանձին է կանչվում
+Person.zoo()
+
+
+
+const a = new Array() // []
+a[0] = 5;
+a[1] = 9;
+
+alert(a)
+a.forEach((val) => {
+    alert(val)
+})
+
+Object.keys({name: "Joe"}); // ստատիկ ֆունկցիա է
+
+
+
+</script>
