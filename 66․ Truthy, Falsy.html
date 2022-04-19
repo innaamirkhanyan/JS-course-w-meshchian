@@ -1,0 +1,39 @@
+<script>
+let a = ""; // falsy
+
+if(a) {
+    alert("yay")
+} else {
+    alert("noo") 
+} 
+// noo
+
+
+let b
+if(!b) {
+    alert("booo")
+} else {
+    alert("woo") 
+} 
+
+// woo
+
+// && is known as a guard operator 
+
+let c = "88" || false;
+alert(c)
+
+function foo(d) {
+    const name = a && a.knows && a.knows.name;
+    alert(name);
+}
+
+foo({
+    knows: {
+        name: "Mike"
+    }
+})
+
+
+
+</script>
