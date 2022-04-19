@@ -1,0 +1,32 @@
+<script>
+const person = {
+    firstName: "Joe",
+    lastName: "Smith",
+    // age: 33,
+    friends: [],
+    favColor: "red"
+}
+
+function printInfo({firstName:x, lastName, age = "unknown"}) { // destruction
+
+    alert(x + " " + lastName + " is " + age + " years old")
+}
+printInfo(person)
+
+
+const {friends} = person;
+alert(friends)
+
+// arrays 
+
+const list = [
+    5, 9, 33, 100
+]
+
+const[a, b] = list;
+// const a = list[0];
+// const b = list[1];
+alert(a)
+
+
+</script>
