@@ -1,4 +1,9 @@
-import {sayHi, PI} from "./hello.js"
+import hopar,{sayHi as sayHii} from "./hello.js"
 
-sayHi();
-console.log(PI)
+function sayHi() {
+    console.log("Hello World")
+}
+
+sayHii ()
+hopar();
+sayHi( )
