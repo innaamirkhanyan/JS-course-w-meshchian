@@ -1,4 +1,4 @@
-import hopar,{sayHi as sayHii} from "./hello.js"
+import def,{sayHi as sayHii} from "./hello.js"
 
 function sayHi() {
     console.log("Hello World")
@@ -6,4 +6,4 @@ function sayHi() {
 
 sayHii ()
 hopar();
-sayHi( )
+sayHi()
