@@ -1,0 +1,21 @@
+<script>
+function func (x, y) {
+    const a  = x + 2;
+    const b = y + 2;
+    const c = x + y;
+
+  return  new Promise (function (resolve, reject) {
+        setTimeout(function() {
+        resolve(c * 2);
+    }, 1000);
+  });
+}
+
+
+const promise = func(2, 4);
+promise.then(function(result) {
+    alert(result);
+});
+
+
+</script>
