@@ -14,24 +14,7 @@
     <div id="root"></div>
 
 <script>
-// console.log("start");
-
-// const id = setTimeout(function(){
-//     console.log("yay");
-// }, 0)
-
-// clearTimeout(id);
-
-// // for(let i = 0; i < 5000; i++){
-// //     console.log("waiting");
-// // }
-
-// setTimeout(function(){
-//     console.log("ok");
-// }, 0)
-
-// console.log("end")
-
+    
 let list = [
     "Joe",
     "Rob",
@@ -46,7 +29,8 @@ const input =  document.querySelector("input");
 input.addEventListener("keyup", (e) => { 
     searchText = e.target.value;
     refresh()
-})
+});
+
 let id;
 function refresh() {
     if(id !== undefined) {

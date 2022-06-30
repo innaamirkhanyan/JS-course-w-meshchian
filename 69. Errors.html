@@ -1,9 +1,27 @@
 <script>
-debugger
-const data = localStorage.getItem("data");
-const obj = JSON.parse(data);
+  //Syntax Error - Լեզվի սխալ
 
+  //Type Error
+  // let a = 3
+  // a();
 
+  // localStorage.setItem("data", JSON.stringify({
+  //     name:"Joe"
+  // }));
 
+  // Եթե օգտագործողը դատան փոփոխի, syntax error կստանանք մեր ծրագրից դուրս ու էլ չի աշխատացնի շարունակությունը
+  function a() {
+    try {
+      alert("hi");
+      return "yay";
+    } catch (err) { // ասում է որ կա սխալ;
+      alert("Error happened");
+    } finally {                 // Եթե return ունենանք ֆունկցիայում առանց finaly շարունակությունը չի աշխատի
+      alert("bye");
+    }
+  }
 
+  a();
+
+  
 </script>
