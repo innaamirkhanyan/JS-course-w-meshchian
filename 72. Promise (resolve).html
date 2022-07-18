@@ -1,0 +1,37 @@
+<script>
+function func() {
+    return new Promise(function(resolve, reject){
+
+        setTimeout(function() {  // սպասելու ֆունկցիա
+            resolve(8);
+        }, 1000);
+    });
+}
+
+function func2(val) {
+    return new Promise(function(resolve, reject){
+
+        setTimeout(function() {  // սպասելու ֆունկցիա
+            resolve(val + 9);
+        }, 1000);
+    });
+}
+
+
+func().then(function(result) { // 8
+    return func2(result);  // վերադարձնում է նոր խոստում
+}).then(function(result) { // 17 կատարվելու ֆունկցիա
+    return result + 2;  // 19
+}).then(function(result) { //   կատարվելու ֆունկցիա
+    alert(result);
+}); // chaining
+
+
+
+
+// reject case 
+
+p.catch(function(error) {  // մերժելու ֆունկցիա
+    alert(error)
+});
+</script>
